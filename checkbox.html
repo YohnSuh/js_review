@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js로 체크박스 컨트롤</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .con {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width:200px;
+            height: 250px;
+            background-color: lightsteelblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="box">
+            <label>
+                <input type="checkbox" id="allCheck">모두 선택
+            </label><br>
+            <label>
+                <input type="checkbox" id="checked1">딸기 우유
+            </label><br>
+            <label>
+                <input type="checkbox" id="checked2">초코 우유
+            </label><br>
+            <label>
+                <input type="checkbox" id="checked3">커피 우유
+            </label>
+        </div>
+    </div>
+    <script>
+        let all = document.querySelector('#allCheck');
+        let checkboxes = document.querySelectorAll('input[id^="checked"]');
+        all.addEventListener('click', function() {
+            if(all.checked) {
+                for(let idx = 0; idx < checkboxes.length; idx++) {
+                    checkboxes[idx].checked = true;
+                }
+            } else {
+                for(let idx = 0; idx < checkboxes.length; idx++) {
+                    checkboxes[idx].checked = false;
+                }
+            }
+        });
+
+        for(let idx = 0; idx < checkboxes.length; idx++) {
+            checkboxes[idx].addEventListener('click', function() {
+                let allChecked = true;
+                for (let i = 0; i < checkboxes.length; i++) {
+                    if (!checkboxes[i].checked) {
+                        allChecked = false;
+                    }
+                }
+                all.checked = allChecked;
+            });
+        }
+    </script>
+</body>
+</html>
