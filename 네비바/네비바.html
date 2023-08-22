@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네비바</title>
+    <script src="https://kit.fontawesome.com/7c72cc71ff.js"
+            crossorigin="anonymous">
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        .top {
+            position: top;
+            width: 100%;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            background-color: #444;
+        }
+        .logo {
+            position: absolute;
+            top: 0;
+            font-size: 32px;
+            width: 100px;
+            text-align: center;
+        }
+        .menu {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .menu > li {
+            margin: 5px 50px;
+        }
+        .menu > li ul {
+            height: 0;
+            font-weight: normal;
+            overflow: hidden;
+            transition: 1s;
+        }
+        .menu > li .active {
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="top">
+            <div class="logo">
+                <a href="#"><i class="fa-brands fa-stumbleupon"></i></a>
+            </div><!--logo-->
+            <ul class="menu">
+                <li>Home</li>
+                <li>About
+                    <ul class="about">
+                        <li><a href="#">menu1</a></li>
+                        <li><a href="#">menu2</a></li>
+                        <li><a href="#">menu3</a></li>
+                    </ul>
+                </li>
+                <li>QnA</li>
+                <li>Mail</li>
+                <li>VOC</li>
+            </ul><!--menu-->
+        </div><!--top-->
+        <div class="inner">
+
+        </div>
+    </nav>
+
+    <script>
+        let menu = document.querySelector('.menu');
+        let inner = document.querySelector('.about');
+        menu.addEventListener('click', () => {
+            inner.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
