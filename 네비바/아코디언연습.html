@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아코디언 연습</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            background-color: beige;
+        }
+        .menu > li:first-child {
+            padding-top: 24px;
+        }
+        .menu .tit {
+            border-bottom: 1px solid #444;
+            padding: 0 10px;
+        }
+        .sub {
+            display: none;
+            background-color: rgba(0,0,0,.3);
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="menu">
+        <li>
+            <span class="tit">아코디언 메뉴1</span>
+            <ul class="sub">
+                <li>메뉴 1</li>
+                <li>메뉴 2</li>
+                <li>메뉴 3</li>
+            </ul><!--sub-->
+        </li>
+        <li>
+            <span class="tit">아코디언 메뉴2</span>
+            <ul class="sub">
+                <li>메뉴 1</li>
+                <li>메뉴 2</li>
+                <li>메뉴 3</li>
+            </ul><!--sub-->
+        </li>
+        <li>
+            <span class="tit">아코디언 메뉴3</span>
+            <ul class="sub">
+                <li>메뉴 1</li>
+                <li>메뉴 2</li>
+                <li>메뉴 3</li>
+            </ul><!--sub-->
+        </li>
+        <li>
+            <span class="tit">아코디언 메뉴4</span>
+            <ul class="sub">
+                <li>메뉴 1</li>
+                <li>메뉴 2</li>
+                <li>메뉴 3</li>
+            </ul><!--sub-->
+        </li>
+        <li>
+            <span class="tit">아코디언 메뉴5</span>
+            <ul class="sub">
+                <li>메뉴 1</li>
+                <li>메뉴 2</li>
+                <li>메뉴 3</li>
+            </ul><!--sub-->
+        </li>
+    </ul>
+    <script src="../js/jquery-3.7.0.min.js"></script>
+    <script>
+        $('.tit').click(function() {
+            $(this).siblings('ul').slideToggle();
+            $(this).parent().siblings().find('.sub').slideUp();
+        });
+    </script>
+</body>
+</html>
