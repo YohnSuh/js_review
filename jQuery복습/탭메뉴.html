@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탭 메뉴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .tab {
+            width: 800px;
+            border: 2px solid;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-between;
+        }
+        .menu li {
+            width: calc(800px / 5);
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 15px 15px 0 0;
+        }
+        .menu li:first-child {
+            background-color: aqua;
+            color: white;
+            font-weight: bold;
+        }
+        .item {
+            width: 800px;
+            height: 600px;
+            display: none;
+        }
+        .item:first-child {
+            display: block;
+        }
+        .bg1 {
+            background-color: aqua;
+        }
+        .bg2 {
+            background-color: yellowgreen;
+        }
+        .bg3 {
+            background-color: aquamarine;
+        }
+        .bg4 {
+            background-color: rosybrown;
+        }
+        .bg5 {
+            background-color: palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <ul class="menu">
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+            <li>menu5</li>
+        </ul><!--menu-->
+        <div class="con">
+            <div class="item bg1"></div>
+            <div class="item bg2"></div>
+            <div class="item bg3"></div>
+            <div class="item bg4"></div>
+            <div class="item bg5"></div>
+        </div><!--con-->
+    </div><!--con-->
+
+    <script src="../js/jquery-3.7.0.min.js"></script>
+    <script>
+        $('.menu > li').click(function() {
+            let index = $(this).index();
+            $(this).css({
+                'background' : $('.item').eq(index).css('background-color') // item과 같은 색으로 변경
+            ,   'color' : 'white'
+            ,   'fontWeight' : 'bold'
+            });
+            $(this).siblings().css({
+                'background' : 'transparent'
+            ,   'color' : 'black'
+            ,   'fontWeight' : 'bold'
+            })
+            $('.item').eq(index).show();
+            $('.item').eq(index).siblings().hide();
+        });
+    </script>
+</body>
+</html>
